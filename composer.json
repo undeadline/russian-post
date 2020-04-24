@@ -1,0 +1,26 @@
+{
+    "name": "undeadline/ruspochta",
+    "description": "This is library for russian post aka Почта России",
+    "keywords": ["post", "russian", "composer", "package", "library", "api"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Evgeny Mishanin",
+            "email": "ermak321@gmail.com"
+        }
+    ],
+    "type": "library",
+    "require": {
+		"php": ">=7.2",
+        "ext-soap": "*",
+        "ext-xml": "*"
+    },
+    "require-dev": {
+		"phpunit/phpunit": "6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Undeadline\\": "src/"
+        }
+    }
+}
