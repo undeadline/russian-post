@@ -4,10 +4,10 @@ namespace Undeadline\Client;
 
 class ClientManager
 {
-    public static function make($type, $config = []): IClient
+    public static function make($type, $wsdl_key, $ver, $config = []): IClient
     {
         if (method_exists(self::class, $type))
-            return self::{$type}($config);
+            return self::{$type}($wsdl_key, $ver, $config);
 
         throw new \Exception("Method {$type} is not exists");
     }

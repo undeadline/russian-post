@@ -6,10 +6,12 @@ return [
         "client" => "soap",
         "options" => [
             "soap" => [
-                "wsdl" => "https://tracking.russianpost.ru/rtm34?wsdl",
+                "wsdl" => [
+                    "soap_1_1" => "https://tracking.russianpost.ru/fc?wsdl",
+                    "soap_1_2" => "https://tracking.russianpost.ru/rtm34?wsdl",
+                ],
                 "headers" => [
                     "cache_wsdl" => WSDL_CACHE_NONE,
-                    "soap_version" => SOAP_1_2,
                     "encoding" => "UTF-8",
                     "trace" => 1,
                     "exceptions" => true,

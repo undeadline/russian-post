@@ -2,14 +2,19 @@
 
 namespace Undeadline\Tracking;
 
+use Undeadline\Client\ClientManager;
 use Undeadline\Repositories\OperationHistoryRepository;
 use Undeadline\Repositories\PostalOrderRepository;
 
-class SOAPTracking extends Tracking implements ITracking
+class SOAPTracking implements ITracking
 {
+    private $soap_1_1;
+    private $soap_1_2;
+
     public function __construct(array $config)
     {
-        parent::__construct($config);
+        $this->soap_1_2 = ClientManager::make($config['client'], 'soap_1_2', 2, $config['options']);
+        $this->soap_1_1 = ClientManager::make($config['client'], 'soap_1_1', 1, $config['options']);
     }
 
     public function getOperationHistory(array $options)
@@ -54,5 +59,10 @@ class SOAPTracking extends Tracking implements ITracking
             return new PostalOrderRepository($response->PostalOrderEventsForMaiOutput->PostalOrderEvent);
 
         return [];
+    }
+
+    public function getTicket(array $options)
+    {
+
     }
 }
