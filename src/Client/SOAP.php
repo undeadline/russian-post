@@ -12,7 +12,7 @@ class SOAP extends \SoapClient implements IClient
         parent::__construct($this->config['soap']['wsdl'][$wsdl_key], array_merge($this->config['soap']['headers'], ['soap_version' => $ver]));
     }
 
-    public function request(string $method, \SoapVar $options)
+    public function request(string $method, $options)
     {
         try {
             return $this->{$method}($options);

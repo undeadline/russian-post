@@ -7,8 +7,8 @@ return [
         "options" => [
             "soap" => [
                 "wsdl" => [
-                    "soap_1_1" => "https://tracking.russianpost.ru/fc?wsdl",
-                    "soap_1_2" => "https://tracking.russianpost.ru/rtm34?wsdl",
+                    "soap_1_1" => "https://tracking.pochta.ru/tracking-web-static/fc_wsdl.xml",
+                    "soap_1_2" => "https://tracking.pochta.ru/tracking-web-static/rtm34_wsdl.xml",
                 ],
                 "headers" => [
                     "cache_wsdl" => WSDL_CACHE_NONE,
@@ -18,6 +18,8 @@ return [
                     "connection_timeout" => 10,
                     "features" => SOAP_SINGLE_ELEMENT_ARRAYS,
                     "keep_alive" => "Connection: keep-alive",
+                    'use' => SOAP_LITERAL,
+                    'style' => SOAP_DOCUMENT
                 ],
                 "authorization" => [
                     "AuthorizationHeader" => [

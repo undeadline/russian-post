@@ -12,9 +12,9 @@ class ClientManager
         throw new \Exception("Method {$type} is not exists");
     }
 
-    private static function soap($config): IClient
+    private static function soap($wsdl_key, $ver, $config): IClient
     {
-        return new SOAP($config);
+        return new SOAP($wsdl_key, $ver, $config);
     }
 
     private static function rest($config): IClient
